@@ -8,6 +8,10 @@ public class Player : MonoBehaviour
     public float speed;
     public float jumpingPower;
 
+    //audio
+    public AudioSource aSjump;
+    public AudioClip[] jumpSound;
+
     //private variables
     [SerializeField] private Rigidbody2D playerBody;
     [SerializeField] private Transform groundCheck;
@@ -21,6 +25,9 @@ public class Player : MonoBehaviour
 
     void Awake(){
         playerBody = GetComponent<Rigidbody2D>();
+
+        //audio
+        aSjump = gameObject.AddComponent<AudioSource>();
     }
 
     void Update(){
@@ -50,6 +57,10 @@ public class Player : MonoBehaviour
     private void Jump(){
         if(Input.GetButtonDown("Jump") && IsGrounded()){
             playerBody.velocity = new Vector2 (playerBody.velocity.x, jumpingPower);
+
+            //audio
+            int currentSound  = Random.Range(0, jumpSound.Length);
+            AudioSource.PlayClipAtPoint(jumpSound[currentSound], transform.position);
         }
 
         if(Input.GetButtonUp("Jump") && playerBody.velocity.y > 0f){
