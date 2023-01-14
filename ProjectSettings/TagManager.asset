@@ -6,11 +6,12 @@ TagManager:
   tags:
   - floor
   - box
+  - platform
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

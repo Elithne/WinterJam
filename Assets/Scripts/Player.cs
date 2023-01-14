@@ -5,48 +5,59 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     //public variables
-    public float velX;
     public float speed;
-    public float jump;
+    public float jumpingPower;
 
     //private variables
-    private Rigidbody2D playerBody;
+    [SerializeField] private Rigidbody2D playerBody;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private LayerMask groundLayer;
+
     private Vector3 direction;
-    private bool canJump;
+    private bool isGrounded;
+    private float horizontal; //Para donde se está moviendo
+    private bool isFacingRight = true;
 
 
-    void Awake()
-    {
+    void Awake(){
         playerBody = GetComponent<Rigidbody2D>();
     }
-    void Update()
-    {
-        Move();
+
+    void Update(){
+        horizontal = Input.GetAxisRaw("Horizontal");
         Jump();
+        Flip();
     }
 
-        private void Move(){  
-        Vector3 destination = transform.position + direction;   
+    private void FixedUpdate(){
+        playerBody.velocity = new Vector2(horizontal * speed, playerBody.velocity.y);    
         
-        if(Input.GetKey(KeyCode.A)){
-            playerBody.AddForce(new Vector2(-speed * Time.deltaTime, 0));         
-        }
-        
-        if(Input.GetKey(KeyCode.D)){
-            playerBody.AddForce(new Vector2(speed * Time.deltaTime, 0));
+    }
+
+    //Cambio de dirección
+    private void Flip(){
+        //Esto va a cambiar la dirección de X, haciéndola del valaor opuesto al actual para que gire y cambie dirección.
+        if(isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f)
+        {
+            isFacingRight = !isFacingRight;
+            Vector3 localScale = transform.localScale;
+            localScale.x *= -1f;
+            transform.localScale = localScale;
         }
     }
 
+    //Lógica de Salto
     private void Jump(){
-        if(Input.GetKeyDown(KeyCode.Space) && canJump){
-            canJump = false;
-            playerBody.AddForce(new Vector2(0, jump));
+        if(Input.GetButtonDown("Jump") && IsGrounded()){
+            playerBody.velocity = new Vector2 (playerBody.velocity.x, jumpingPower);
+        }
+
+        if(Input.GetButtonUp("Jump") && playerBody.velocity.y > 0f){
+            playerBody.velocity = new Vector2(playerBody. velocity.x, playerBody.velocity.y * 0.5f);
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.transform.tag == "floor" || collision.transform.tag == "box"){
-            canJump = true;
-        }
-    }
+    private bool IsGrounded(){
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);//Esto crea un circulo invisible en los pies del personajes, y cuando colisione con el layer "groundLayer" va a saltar.
+    }   
 }
