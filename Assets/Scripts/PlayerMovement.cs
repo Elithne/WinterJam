@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed;
     public float jumpingPower;
     public bool canMove;
+    public Animator animator;
 
     //private variables
     [SerializeField] private Rigidbody2D playerBody;
