@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Player : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    //public variables
-    public float speed;
-    public float jumpingPower;
-
     //audio
     public AudioSource aSjump;
     public AudioClip[] jumpSound;
+
+    //public variables
+    public float speed;
+    public float jumpingPower;
+    public bool canMove;
 
     //private variables
     [SerializeField] private Rigidbody2D playerBody;
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
 
 
     void Awake(){
+        canMove = true;
         playerBody = GetComponent<Rigidbody2D>();
 
         //audio
@@ -32,9 +34,11 @@ public class Player : MonoBehaviour
     }
 
     void Update(){
-        horizontal = Input.GetAxisRaw("Horizontal");
-        Jump();
-        Flip();
+        if(canMove){
+            horizontal = Input.GetAxisRaw("Horizontal");
+            Jump();
+            Flip();
+        }
     }
 
     private void FixedUpdate(){
