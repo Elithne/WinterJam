@@ -7,6 +7,7 @@ TagManager:
   - floor
   - box
   - platform
+  - water
   layers:
   - Default
   - TransparentFX

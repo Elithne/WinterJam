@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -70,5 +71,5 @@ public class Player : MonoBehaviour
 
     private bool IsGrounded(){
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);//Esto crea un circulo invisible en los pies del personajes, y cuando colisione con el layer "groundLayer" va a saltar.
-    }   
+    }
 }
