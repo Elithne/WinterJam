@@ -38,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
             horizontal = Input.GetAxisRaw("Horizontal");
             Jump();
             Flip();
+        } else {
+            playerBody.velocity = new Vector2(0, 0);
         }
     }
 
