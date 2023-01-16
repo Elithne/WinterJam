@@ -9,6 +9,7 @@ TagManager:
   - platform
   - water
   - WaterCollider
+  - WaterLevel
   layers:
   - Default
   - TransparentFX

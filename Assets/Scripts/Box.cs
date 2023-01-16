@@ -10,7 +10,12 @@ public class Box : MonoBehaviour
         if(collision.transform.tag == "floor" || collision.transform.tag == "water"){
             Destroy(gameObject);
             spawner.SpawnObject();
-
         }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision){
+      if(collision.transform.tag == "Player"){
+
+      }
     }
 }

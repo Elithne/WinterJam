@@ -8,6 +8,5 @@ public class ChangeState : MonoBehaviour
 
     public void ChangeSprite(){
         this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteChange;
-        Debug.Log("CHANGE");
     }
 }
