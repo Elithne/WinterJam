@@ -10,10 +10,11 @@ public class PlayerMovement : MonoBehaviour
     public AudioClip[] jumpSound;
 
     //public variables
+    public Animator animator; //Como necesitamos controlar el animador a travé sdel script, lo referenciamos.
     public float speed;
     public float jumpingPower;
     public bool canMove;
-    public Animator animator;
+
 
     //private variables
     [SerializeField] private Rigidbody2D playerBody;
@@ -37,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     void Update(){
         if(canMove){
             horizontal = Input.GetAxisRaw("Horizontal");
+            animator.SetFloat("Speed", Mathf.Abs(horizontal));
             Jump();
             Flip();
         } else {
