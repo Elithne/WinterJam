@@ -41,7 +41,7 @@ public class Water : MonoBehaviour
 
     public IEnumerator FinishGame(){
         yield return new WaitForSeconds(3.3f);
-        SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Defeat");
     }
 
 }

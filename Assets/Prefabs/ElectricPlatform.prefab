@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6476504316225643383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.6703898, y: -1.5896301, z: 0}
-  m_LocalScale: {x: 4, y: 1.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.764151, g: 0.6785549, b: 0.033641797, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 712a4cc18fb395340a3678963516cf3c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,8 +100,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isElectrified: 0
-  playerMovement: {fileID: 3183527764667348162, guid: eba668953fc1f5e40b57bf7ca19dcae1, type: 3}
-  timeParalyzed: 5
+  isPlayerParalyzed: 0
+  spriteNormal: {fileID: 21300000, guid: 712a4cc18fb395340a3678963516cf3c, type: 3}
+  spriteShortcuit: {fileID: 21300000, guid: 854b96a92dc2b004d95cffe3023e6574, type: 3}
+  timeElectrifying: 2
 --- !u!61 &4425744604077394931
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -115,18 +117,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 1
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.8, y: -1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
+    oldSize: {x: 10.8, y: 2.9}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 8.8, y: 1}
   m_EdgeRadius: 0
 --- !u!251 &8263368721787334282
 PlatformEffector2D:

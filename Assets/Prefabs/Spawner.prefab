@@ -12,11 +12,11 @@ GameObject:
   - component: {fileID: 8059948168212353544}
   m_Layer: 0
   m_Name: Spawner
-  m_TagString: Untagged
+  m_TagString: spawner
   m_Icon: {fileID: 2974397684917235467, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8059948168212353547
 Transform:
   m_ObjectHideFlags: 0
@@ -45,4 +45,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToSpawn: {fileID: 4795906243800238364, guid: 01a6bd816e92f63439329d9f152d32e8, type: 3}
-  isObjectDestroyed: 1

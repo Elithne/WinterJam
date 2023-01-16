@@ -14,7 +14,7 @@ public class ChangeState : MonoBehaviour
 
 
     private void OnTriggerStay2D(Collider2D collider){
-        if(collider.CompareTag("Player") && Input.GetKeyDown(KeyCode.F)){
+        if(collider.CompareTag("Player") && Input.GetKeyDown(KeyCode.Return)){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteChange;
             door.OpenDoor();
         }

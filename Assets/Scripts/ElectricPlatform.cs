@@ -6,7 +6,10 @@ public class ElectricPlatform : MonoBehaviour
 {
     public bool isElectrified;
     public bool isPlayerParalyzed;
-    [SerializeField] private float timeElectrifying = 2.0f;
+    public Sprite spriteNormal;
+    public Sprite spriteShortcuit;
+
+    [SerializeField] private float timeElectrifying = 5.0f;
 
 
     void Start()
@@ -30,13 +33,23 @@ public class ElectricPlatform : MonoBehaviour
 
     private IEnumerator Activate(){
         if(!isPlayerParalyzed){
-            isElectrified = true;
             //Debug.Log("On");
             yield return new WaitForSeconds(timeElectrifying);
-            isElectrified = false;
+            TurnOn();
             //Debug.Log("Off");
             yield return new WaitForSeconds(timeElectrifying);
+            TurnOff();
+            
         }
 
+    }
+
+    private void TurnOff(){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteNormal;
+            isElectrified = false;
+    }
+    private void TurnOn(){       
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteShortcuit;
+            isElectrified = true;
     }
 }

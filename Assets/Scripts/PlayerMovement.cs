@@ -67,18 +67,29 @@ public class PlayerMovement : MonoBehaviour
     private void Jump(){
         if(Input.GetButtonDown("Jump") && IsGrounded()){
             playerBody.velocity = new Vector2 (playerBody.velocity.x, jumpingPower);
-
+            animator.SetTrigger("TakeOff");
             //audio
             int currentSound  = Random.Range(0, jumpSound.Length);
             AudioSource.PlayClipAtPoint(jumpSound[currentSound], transform.position);
-        }
+        } 
 
         if(Input.GetButtonUp("Jump") && playerBody.velocity.y > 0f){
+            //OnLanding();
             playerBody.velocity = new Vector2(playerBody. velocity.x, playerBody.velocity.y * 0.5f);
+        }
+
+        if(!IsGrounded()) {
+            animator.SetBool("IsJumping", true);
+        } else {
+            animator.SetBool("IsJumping", false);
         }
     }
 
     private bool IsGrounded(){
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);//Esto crea un circulo invisible en los pies del personajes, y cuando colisione con el layer "groundLayer" va a saltar.
+    }
+
+    private void OnLanding(){
+        animator.SetBool("IsJumping", false);
     }
 }
