@@ -18,7 +18,6 @@ public class Water : MonoBehaviour
         if(canMove){
             Move();
         }
-
     }
 
     public IEnumerator StartMoving(){
@@ -32,7 +31,14 @@ public class Water : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.transform.CompareTag("Player")){
-            SceneManager.LoadScene("Level1");
+        //sonido
+        StartCoroutine(FinishGame());
         }
     }
+
+    public IEnumerator FinishGame(){
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("Level1");
+    }
+
 }

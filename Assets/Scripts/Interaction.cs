@@ -12,13 +12,18 @@ public class Interaction : MonoBehaviour
     public LayerMask detectionLayer;
 
     public GameObject door;
+    public ChangeState interaction;
 
+    void Start(){
+        //interaction = GetComponent<ChangeState>();
+    }
     void Update()
     {
         if(DetectObject()){
             if(InteractInput()){
                 print("INTERACT");
                 door.SetActive(false);
+                interaction.ChangeSprite();
             }
         }
     }

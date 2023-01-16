@@ -31,10 +31,11 @@ public class ElectricPlatform : MonoBehaviour
     private IEnumerator Activate(){
         if(!isPlayerParalyzed){
             isElectrified = true;
-            Debug.Log("On");
+            //Debug.Log("On");
             yield return new WaitForSeconds(timeElectrifying);
             isElectrified = false;
-            Debug.Log("Off");
+            //Debug.Log("Off");
+            yield return new WaitForSeconds(timeElectrifying);
         }
 
     }
