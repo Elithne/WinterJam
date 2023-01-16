@@ -6,16 +6,22 @@ public class Box : MonoBehaviour
 {
     public Spawner spawner;
 
+    public AudioClip boxRespawnSound;
+    public AudioSource audioSrespawn;
+
+    private void Start()
+    {
+        audioSrespawn = GetComponent<AudioSource>();        
+    }
+
     private void OnCollisionEnter2D(Collision2D collision){
-        if(collision.transform.tag == "floor" || collision.transform.tag == "water"){
-            Destroy(gameObject);
-            spawner.SpawnObject();
+        if (collision.transform.tag == "floor" || collision.transform.tag == "water") {
+            audioSrespawn.PlayOneShot(boxRespawnSound);
+
+            Destroy(gameObject, 2f);
+            spawner.SpawnObject();            
+
         }
     }
-
-    private void OnCollisionStay2D(Collision2D collision){
-      if(collision.transform.tag == "Player"){
-
-      }
-    }
+    
 }
