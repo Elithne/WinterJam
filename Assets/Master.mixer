@@ -29,10 +29,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: a9e97ec0be7cb2141a8ccc087392b923
   m_FloatValues:
+    91554e00cede0584e8e042da4c4c0c1e: -2.018035
     bd80da40a7d79de4894a8645f518cdc6: -1.7612991
     fc0418614a3003e4687e8918f6ca4056: -80
-    414e04ded30738445ae68b22cd14aba3: -1.5191216
-    8f9147de6e325ae40bfb5d4bfd38be27: -2.018035
+    414e04ded30738445ae68b22cd14aba3: -3.8468575
+    8f9147de6e325ae40bfb5d4bfd38be27: -4.1973577
+    d1da8a0fb81ffdf458e4f349f5844fc9: -6.5566154
   m_TransitionOverrides: {}
 --- !u!243 &-6268979714776001965
 AudioMixerGroupController:
@@ -62,7 +64,8 @@ AudioMixerSnapshotController:
   m_Name: Amb2
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: dbdc1d54db0293445a097844e4ee2a14
-  m_FloatValues: {}
+  m_FloatValues:
+    91554e00cede0584e8e042da4c4c0c1e: -1.7612991
   m_TransitionOverrides: {}
 --- !u!243 &-4348580247897672792
 AudioMixerGroupController:
@@ -114,10 +117,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 73cd3afc2e8b8a24ba2b96f2b26c7bb3
   m_FloatValues:
-    bd80da40a7d79de4894a8645f518cdc6: -1.5191216
+    91554e00cede0584e8e042da4c4c0c1e: -1.5191216
+    bd80da40a7d79de4894a8645f518cdc6: -2.8722944
     fc0418614a3003e4687e8918f6ca4056: -80
-    414e04ded30738445ae68b22cd14aba3: -2.018035
+    414e04ded30738445ae68b22cd14aba3: -3.8468575
     8f9147de6e325ae40bfb5d4bfd38be27: -80
+    d1da8a0fb81ffdf458e4f349f5844fc9: -6.991066
   m_TransitionOverrides: {}
 --- !u!243 &-2426176667653896144
 AudioMixerGroupController:
@@ -267,11 +272,12 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 82f6c1caf36600742a90e38a2315de9c
   m_FloatValues:
-    91554e00cede0584e8e042da4c4c0c1e: -0.08374829
+    91554e00cede0584e8e042da4c4c0c1e: -1.7612991
     bd80da40a7d79de4894a8645f518cdc6: -2.018035
     fc0418614a3003e4687e8918f6ca4056: -80
     414e04ded30738445ae68b22cd14aba3: -80
     8f9147de6e325ae40bfb5d4bfd38be27: -80
+    d1da8a0fb81ffdf458e4f349f5844fc9: -7.436929
   m_TransitionOverrides: {}
 --- !u!244 &411156480156365405
 AudioMixerEffectController:
