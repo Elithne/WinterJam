@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ChangeState : MonoBehaviour
 {
-    public Sprite spriteChange;
+    public Sprite spriteChange;        
+
 
     public void ChangeSprite(){
         this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteChange;
+        GetComponent<AudioSource>().Play();
         Debug.Log("CHANGE");
     }
 }

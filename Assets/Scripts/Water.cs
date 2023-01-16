@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 public class Water : MonoBehaviour
 {
     public float velocidadY;
-    private bool canMove;
+    private bool canMove;       
+
     // Start is called before the first frame update
     void Start()
     {
         canMove = false;
         StartCoroutine(StartMoving());
+        
     }
 
     void Update(){
@@ -31,13 +33,14 @@ public class Water : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision){
         if(collision.transform.CompareTag("Player")){
-        //sonido
-        StartCoroutine(FinishGame());
+            //sonido
+            GetComponent<AudioSource>().Play();
+            StartCoroutine(FinishGame());
         }
     }
 
     public IEnumerator FinishGame(){
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3.3f);
         SceneManager.LoadScene("Level1");
     }
 
