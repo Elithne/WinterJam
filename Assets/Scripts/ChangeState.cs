@@ -17,6 +17,10 @@ public class ChangeState : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collider){
         if(collider.CompareTag("Player") && Input.GetKeyDown(KeyCode.Return)){
+<<<<<<< Updated upstream
+=======
+            GetComponent<AudioSource>().Play();
+>>>>>>> Stashed changes
             this.gameObject.GetComponent<SpriteRenderer>().sprite = spriteChange;
             door.OpenDoor();
             GetComponent<AudioSource>().Play();
